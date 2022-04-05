@@ -1,0 +1,51 @@
+newmtl Bed
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd Rosa.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 100.00
+newmtl Pillow
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd Almohada-Blanco.jpg
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 100.00
+newmtl TropicalFish12____Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd TropicalFish12.jpg
+map_Ka TropicalFish12.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl ___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd TropicalFish01.jpg
+map_Ka TropicalFish01.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl initialShadingGroup
+illum 4
+Kd 0.47 0.21 0.12
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd cobijap.jpg
+Ni 1.00
