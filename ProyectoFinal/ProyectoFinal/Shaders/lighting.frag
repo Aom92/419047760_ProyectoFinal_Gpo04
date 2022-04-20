@@ -1,6 +1,6 @@
 #version 330 core
 
-#define NUMBER_OF_POINT_LIGHTS 4
+#define NUMBER_OF_POINT_LIGHTS 0
 
 struct Material
 {
@@ -55,8 +55,8 @@ out vec4 color;
 
 uniform vec3 viewPos;
 uniform DirLight dirLight;
-uniform PointLight pointLights[NUMBER_OF_POINT_LIGHTS];
-uniform SpotLight spotLight;
+//uniform PointLight pointLights[NUMBER_OF_POINT_LIGHTS];
+//uniform SpotLight spotLight;
 uniform Material material;
 uniform int activaTransparencia;
 uniform vec4 colorAlpha;
@@ -76,13 +76,13 @@ void main( )
     vec3 result = CalcDirLight( dirLight, norm, viewDir );
     
     // Point lights
-    for ( int i = 0; i < NUMBER_OF_POINT_LIGHTS; i++ )
-    {
-        result += CalcPointLight( pointLights[i], norm, FragPos, viewDir );
-    }
+    //for ( int i = 0; i < NUMBER_OF_POINT_LIGHTS; i++ )
+    //{
+    //    result += CalcPointLight( pointLights[i], norm, FragPos, viewDir );
+    //}
     
     // Spot light
-    result += CalcSpotLight( spotLight, norm, FragPos, viewDir );
+    //result += CalcSpotLight( spotLight, norm, FragPos, viewDir );
  	
     color = vec4(colorAlpha)*vec4( result,texture(material.diffuse, TexCoords).rgb );
 	  if(color.a < 0.1 && activaTransparencia == 1)
