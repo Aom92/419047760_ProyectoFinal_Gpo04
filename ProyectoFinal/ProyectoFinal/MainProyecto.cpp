@@ -160,6 +160,8 @@ int main()
 	Model Esfera((char*)"Models/Esfera/Esfera.obj");
 	Model Box((char*)"Models/Box/Box.obj");
 	Model reloj((char*)"Models/Reloj/Reloj.obj");
+	Model Fachada((char*)"Models/Fachada/FavHQ1.obj");
+
 
 
 
@@ -259,6 +261,7 @@ int main()
 
 		model = glm::mat4(1);
 		reloj.Draw(lightingShader);
+		Fachada.Draw(lightingShader);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
 		//Desactiva el canal alfa 
 		glBindVertexArray(0);
@@ -290,6 +293,7 @@ int main()
 			glBindVertexArray(VAO);
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 		}
+		
 		glBindVertexArray(0);
 
 
