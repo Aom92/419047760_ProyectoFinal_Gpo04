@@ -160,7 +160,7 @@ int main()
 	Model Esfera((char*)"Models/Esfera/Esfera.obj");
 	Model Box((char*)"Models/Box/Box.obj");
 	Model reloj((char*)"Models/Reloj/Reloj.obj");
-	Model Fachada((char*)"Models/Fachada/FavHQ1.obj");
+	Model maqueta((char*)"Models/Maqueta/Maqueta.obj");
 
 
 
@@ -219,7 +219,7 @@ int main()
 
 		// Directional light
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 1.0f, 1.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.4f, 0.4f, 0.4f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.1f, 0.1f, 0.1f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
 
@@ -261,7 +261,7 @@ int main()
 
 		model = glm::mat4(1);
 		reloj.Draw(lightingShader);
-		Fachada.Draw(lightingShader);
+		maqueta.Draw(lightingShader);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
 		//Desactiva el canal alfa 
 		glBindVertexArray(0);
