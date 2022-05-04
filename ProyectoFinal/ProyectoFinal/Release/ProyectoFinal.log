@@ -1,0 +1,79 @@
+﻿  MainProyecto.cpp
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(194,24): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(349,25): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(354,25): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(360,25): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(366,25): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(371,25): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(376,25): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(380,26): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(384,26): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(388,26): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(392,26): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(396,26): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(400,26): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(444,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(445,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(449,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(450,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(452,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(453,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+soil2-debug.lib(SOIL2.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 624 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+soil2-debug.lib(etc1_utils.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(etc1_utils.obj)' or at 'D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
+soil2-debug.lib(image_DXT.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_DXT.obj)' or at 'D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
+soil2-debug.lib(image_helper.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_helper.obj)' or at 'D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
+soil2-debug.lib(SOIL2.obj) : warning LNK4099: PDB '' was not found with 'soil2-debug.lib(SOIL2.obj)' or at ''; linking object as if no debug info
+  ProyectoFinal.vcxproj -> D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\Release\ProyectoFinal.exe
