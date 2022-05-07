@@ -152,15 +152,15 @@ int main()
 	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
-
+	//Carga de Modelos 3D. 
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
-
 	Model Piso((char*)"Models/Esfera/Piso.obj");
 	Model Esfera((char*)"Models/Esfera/Esfera.obj");
 	Model Box((char*)"Models/Box/Box.obj");
 	Model reloj((char*)"Models/Reloj/Reloj.obj");
 	Model maqueta((char*)"Models/Maqueta/Maqueta.obj");
+	Model Fachada((char*)"Models/Fachada/FavHQ1.obj");
 
 
 
@@ -219,7 +219,7 @@ int main()
 
 		// Directional light
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.4f, 0.4f, 0.4f);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.8f, 0.8f, 0.8f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.1f, 0.1f, 0.1f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
 
@@ -260,7 +260,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
 		model = glm::mat4(1);
-		reloj.Draw(lightingShader);
+		Fachada.Draw(lightingShader);
 		maqueta.Draw(lightingShader);
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
 		//Desactiva el canal alfa 
