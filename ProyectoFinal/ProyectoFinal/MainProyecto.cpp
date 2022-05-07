@@ -152,15 +152,33 @@ int main()
 	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
-	//Carga de Modelos 3D. 
+	
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
+
+	//Carga de Modelos 3D. 
 	Model Piso((char*)"Models/Esfera/Piso.obj");
 	Model Esfera((char*)"Models/Esfera/Esfera.obj");
 	Model Box((char*)"Models/Box/Box.obj");
-	Model reloj((char*)"Models/Reloj/Reloj.obj");
+	//Modelos Generales
 	Model maqueta((char*)"Models/Maqueta/Maqueta.obj");
 	Model Fachada((char*)"Models/Fachada/FavHQ1.obj");
+
+	//Modelos para el cuarto.
+	Model reloj((char*)"Models/Reloj/Reloj.obj");
+	Model teaset((char*)"Models/Teaset/TeaSet.obj");
+	Model libreroA((char*)"Models/Libreros/LibreroAngosto.obj");				
+	Model escritorio((char*)"Models/Escritorio/Escritorio.obj");
+	Model escritorioTe((char*)"Models/EscritorioTe/EscritorioTe.obj");
+	Model candelabro((char*)"Models/Candelabro/Candelabro.obj");         
+	Model escudo((char*)"Models/Escudo/Emblem.obj");					 
+
+	//Modelos de los ambientes.
+	Model cuarto1((char*)"Models/Ambientes/Cuarto1.obj");				
+
+
+	
+
 
 
 
@@ -255,13 +273,28 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Piso.Draw(lightingShader);
 
-		//Carga de más objetos.
+		//Carga de más objetos. 
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
 		model = glm::mat4(1);
-		Fachada.Draw(lightingShader);
-		maqueta.Draw(lightingShader);
+
+		//Dibujo de Objetos:
+		//Fachada.Draw(lightingShader);
+		//maqueta.Draw(lightingShader);
+
+		//Cargamos los 7 objetos requeridos para recrear el ambiente.
+		reloj.Draw(lightingShader);
+		teaset.Draw(lightingShader);
+		librero.Draw(lightingShader);
+		escritorio.Draw(lightingShader);
+		escritorioTe.Draw(lightingShader);
+		candelabro.Draw(lightingShader);
+		escudo.Draw(lightingShader);
+
+
+
+
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
 		//Desactiva el canal alfa 
 		glBindVertexArray(0);
