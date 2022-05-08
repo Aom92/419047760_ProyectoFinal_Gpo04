@@ -115,6 +115,11 @@ public:
 
 	}
 
+	void UpdateMovementSpeed(GLfloat movspeed)
+	{
+		this->movementSpeed = movspeed;
+	}
+
 	GLfloat GetZoom()
 	{
 		return this->zoom;
