@@ -28,6 +28,7 @@
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void MouseCallback(GLFWwindow* window, double xPos, double yPos);
 void DoMovement();
+void Animacion();
 
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
@@ -48,6 +49,15 @@ glm::vec3 SpotlightDir(0.0f, -1.0f, 0.0f);
 
 GLfloat PointLinear, PointQuad;
 bool active;
+
+//Variables para Animacion
+float rotPuertaD, rotPuertaI;
+bool PuertaA = false;
+bool PuertaC = false;
+bool abierta = false;
+bool cerrada = true;
+
+
 
 // Positions of the point lights
 glm::vec3 pointLightPositions[] = {
@@ -197,6 +207,11 @@ int main()
 	Model libreroAncho((char*)"Models/Libreros/LibreroAncho.obj");
 	Model librerosVar((char*)"Models/Libreros/LibrerosAnchoVar.obj");
 
+	//Modelos animados.
+	Model puertader((char*)"Models/Fachada/PuertaDer.obj");
+	Model puertaizq((char*)"Models/Fachada/PuertaIzq.obj");
+
+
 
 
 	
@@ -244,6 +259,7 @@ int main()
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
 		glfwPollEvents();
 		DoMovement();
+		Animacion();
 
 		// Clear the colorbuffer
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -267,7 +283,7 @@ int main()
 
 		// Directional light
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.3f, 0.3f, 0.3f);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.5f, 0.5f, 0.5f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.1f, 0.1f, 0.1f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
 
@@ -417,6 +433,23 @@ int main()
 		librerosVar.Draw(lightingShader);
 
 
+		//Cargamos los modelos que se van a animar
+
+		//Puerta derecha
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(9.5993f, 1.6369f, -1.3f));
+		model = glm::rotate(model, glm::radians(rotPuertaD), glm::vec3(0.0f, 1.0f, 0.0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		puertader.Draw(lightingShader);
+
+		//Puerta izquierda
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(9.5993f, 1.6369f, 1.81f));
+		model = glm::rotate(model, glm::radians(rotPuertaD), glm::vec3(0.0f, -1.0f, 0.0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		puertaizq.Draw(lightingShader);
+
+
 		//Reseteamos transformaciones.
 		model = glm::mat4(1);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -475,6 +508,32 @@ int main()
 	return 0;
 }
 
+
+void Animacion() {
+
+	//Animacion de Puerta Frontal
+	if (PuertaA) 
+	{
+		rotPuertaD -= 0.1f;
+		if (rotPuertaD < -85.0f) {
+			PuertaA = false;
+		}
+		
+	}
+
+	if (PuertaC) 
+	{
+		
+		rotPuertaD += 0.1f;
+		if (rotPuertaD > 0.0f) {
+			PuertaC = false;
+		}
+
+	}
+	
+
+}
+
 // Moves/alters the camera positions based on user input
 void DoMovement()
 {
@@ -519,11 +578,7 @@ void DoMovement()
 		//pointLightPositions[0].x += 0.01f;
 		SpotlightPos.x += 0.01;
 	}
-	if (keys[GLFW_KEY_G])
-	{
-		//pointLightPositions[0].x -= 0.01f;
-		SpotlightPos.x -= 0.01;
-	}
+	
 
 	if (keys[GLFW_KEY_Y])
 	{
@@ -604,10 +659,22 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		}
 	}
 
+	//Correr
 	if (keys[GLFW_KEY_P]) {
 		//Debug functions
 		std::cout << "X: " << camera.GetPosition().x << "Y: " << camera.GetPosition().y << "Z: " << camera.GetPosition().z << std::endl;
 
+	}
+
+	//Botones de animación
+	if (keys[GLFW_KEY_G]) {
+
+		PuertaA = true;
+	}
+
+	if (keys[GLFW_KEY_T]) {
+
+		PuertaC = true;
 	}
 }
 
