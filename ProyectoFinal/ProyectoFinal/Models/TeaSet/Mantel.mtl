@@ -1,4 +1,14 @@
-newmtl pasted__phong2SG
+newmtl pasted__Tazas_pasted__phong2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd TeteraUV.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks TeteraUVS.png
+Ns 19.87
+newmtl pasted__pasted__phong2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00

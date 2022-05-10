@@ -361,7 +361,8 @@ int main()
 
 	//Modelos para el cuarto.
 	Model reloj((char*)"Models/Reloj/Reloj1.obj");
-	Model teaset((char*)"Models/Teaset/TeaSet.obj");
+	Model mantelTetera((char*)"Models/Teaset/Mantel.obj");
+	Model tazas((char*)"Models/Teaset/Tazas.obj");
 	Model escritorio((char*)"Models/Escritorio/Escritorio.obj");
 	Model escritorioTe((char*)"Models/EscritorioTe/EscritorioTe.obj");
 	Model candelabro((char*)"Models/Candelabro/Candelabro.obj");
@@ -679,7 +680,12 @@ int main()
 
 		//Cargamos los 7 objetos requeridos para recrear el ambiente.
 		reloj.Draw(lightingShader);
-		teaset.Draw(lightingShader);
+		mantelTetera.Draw(lightingShader);
+		tazas.Draw(lightingShader);
+
+
+
+		model = glm::mat4(1);
 		escritorio.Draw(lightingShader); //Listo!
 		escritorioTe.Draw(lightingShader);//Listo!
 		candelabro.Draw(lightingShader); //Listo!
@@ -732,9 +738,11 @@ int main()
 
 		//Tetera
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(-3.94867f + posX, 2.87696f + posY , -3.51513f + posZ));
 		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, TeteraZ));
-		model = glm::rotate(model, glm::radians(rotX), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(rotX), glm::vec3(1.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotZ), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		teapot.Draw(lightingShader);
 
@@ -819,6 +827,7 @@ void Animacion() {
 
 	}
 
+	//Animacion de Reloj de Pendulo.
 	if (Pendulo)
 	{
 		//Basandonos en la ecuación del periodo del pendulo.
@@ -834,6 +843,7 @@ void Animacion() {
 
 	}
 
+	//iniciar animaciones por interpolaciones.
 	if (play)
 	{
 		if (i_curr_steps >= i_max_steps) //end of animation between frames?
@@ -963,11 +973,11 @@ void DoMovement()
 		posZ -= 0.001;
 	}
 
-	if (keys[GLFW_KEY_7]) {
+	if (keys[GLFW_KEY_UP]) {
 		rotX -= 0.05;
 	}
 
-	if (keys[GLFW_KEY_8]) {
+	if (keys[GLFW_KEY_LEFT]) {
 		rotY -= 0.05;
 	}
 
