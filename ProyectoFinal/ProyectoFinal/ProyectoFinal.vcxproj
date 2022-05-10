@@ -159,6 +159,8 @@
   <ItemGroup>
     <None Include="Shaders\anim.frag" />
     <None Include="Shaders\anim.vs" />
+    <None Include="Shaders\anim2.frag" />
+    <None Include="Shaders\anim2.vs" />
     <None Include="Shaders\lamp.frag" />
     <None Include="Shaders\lamp.vs" />
     <None Include="Shaders\lighting.frag" />
