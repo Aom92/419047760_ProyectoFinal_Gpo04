@@ -57,6 +57,11 @@ bool Tetera = false;
 float TeteraX, TeteraZ, TrotX, TrotY, TrotZ = 0.0;	//Variables para la tetera.
 float  TeteraY = 1.0f;
 
+float ProtY = 0.0f;//Variables para la puerta del cuarto
+bool pcerrada = true;
+bool pabierta = false;
+bool playpuerta2;
+
 
 
 bool Pendulo = false;
@@ -110,12 +115,14 @@ typedef struct _frame
 
 
 FRAME KeyFrame[MAX_FRAMES];
+FRAME PuertaKF[MAX_FRAMES];
+FRAME PuertaKF2[MAX_FRAMES];
 
 
 
-int FrameIndex = 0;			//introducir datos
-bool play = false;
-int playIndex = 0;
+int FrameIndex, PuertaFrameIndex, PuertaFrameIndex2 = 0;			//introducir datos
+bool play, playpuerta = false;
+int playIndex, puertaPlayIndex = 0;
 
 
 // Positions of the point lights
@@ -192,21 +199,21 @@ void importar_KeyFrames(std::string filename, int& Index, FRAME* KeyFrameArray) 
 void saveFrame(void)
 {
 
-	printf("frameindex %d\n", FrameIndex);
+	printf("frameindex %d\n", PuertaFrameIndex);
 
-	KeyFrame[FrameIndex].posX = posX;
-	KeyFrame[FrameIndex].posY = posY;
-	KeyFrame[FrameIndex].posZ = posZ;
+	PuertaKF[PuertaFrameIndex].posX = posX;
+	PuertaKF[PuertaFrameIndex].posY = posY;
+	PuertaKF[PuertaFrameIndex].posZ = posZ;
+	
+	PuertaKF[PuertaFrameIndex].rotX = rotX;
+	PuertaKF[PuertaFrameIndex].rotY = ProtY;
+	PuertaKF[PuertaFrameIndex].rotZ = rotZ;
 
-	KeyFrame[FrameIndex].rotX = rotX;
-	KeyFrame[FrameIndex].rotY = rotY;
-	KeyFrame[FrameIndex].rotZ = rotZ;
-
-	KeyFrame[FrameIndex].exportar("Anims/temp.keyframe");
-	std::cout << KeyFrame[FrameIndex].posX << endl;
+	PuertaKF[PuertaFrameIndex].exportar("Anims/temp.keyframe");
+	std::cout << PuertaKF[PuertaFrameIndex].posX << endl;
 
 
-	FrameIndex++;
+	PuertaFrameIndex++;
 }
 
 void resetElements(void)
@@ -218,6 +225,8 @@ void resetElements(void)
 	TrotX = KeyFrame[0].rotX;
 	TrotY = KeyFrame[0].rotY;
 	TrotZ = KeyFrame[0].rotZ;
+
+	
 	
 	//posX = KeyFrame[0].posX;
 	//posY = KeyFrame[0].posY;
@@ -371,6 +380,7 @@ int main()
 	
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
+	Shader Anim2("Shaders/anim2.vs", "Shaders/anim2.frag");
 
 	//Carga de Modelos 3D. 
 	Model Piso((char*)"Models/Pisos/Piso.obj");
@@ -381,6 +391,8 @@ int main()
 	Model techo((char*)"Models/Extras/Techo1.obj");
 	Model Fachada((char*)"Models/Fachada/FavHQ1.obj");
 	Model tapete((char*)"Models/Tapete/Tapete.obj");
+	Model marco((char*)"Models/Extras/MarcoPuerta.obj");
+	Model puerta((char*)"Models/Extras/Puerta.obj");
 
 	//Modelos para el cuarto.
 	Model reloj((char*)"Models/Reloj/Reloj1.obj");
@@ -393,6 +405,7 @@ int main()
 	Model teapot((char*)"Models/Teaset/Tetera.obj");
 
 
+
 	//Librero y sus variantes.
 	Model librero((char*)"Models/Libreros/Librero.obj");
 	Model libreroAncho((char*)"Models/Libreros/LibreroAncho.obj");
@@ -402,6 +415,8 @@ int main()
 	Model puertader((char*)"Models/Fachada/PuertaDer.obj");
 	Model puertaizq((char*)"Models/Fachada/PuertaIzq.obj");
 	Model pendulo((char*)"Models/Reloj/Badajo.obj");
+	Model lago((char*)"Models/Lago/Lago.obj");
+
 
 
 
@@ -416,11 +431,13 @@ int main()
 	//Inicialización de KeyFrames
 
 	importar_KeyFrames("Anims/tetera.keyframe", FrameIndex, KeyFrame);
+	importar_KeyFrames("Anims/puerta.keyframe", PuertaFrameIndex, PuertaKF);
+	importar_KeyFrames("Anims/puerta2.keyframe", PuertaFrameIndex2, PuertaKF2);
 
 
-	for (size_t i = 0; i < FrameIndex; i++)
+	for (size_t i = 0; i < PuertaFrameIndex; i++)
 	{
-		std::cout << KeyFrame[i].posX << " " << KeyFrame[i].posY << " " << KeyFrame[i].posZ << " " << endl;
+		std::cout << PuertaKF[i].posX << " " << PuertaKF[i].posZ << " " << PuertaKF[i].rotY << " " << endl;
 	}
 
 	/*for (int i = 0; i < MAX_FRAMES; i++)
@@ -698,6 +715,7 @@ int main()
 		pasillo.Draw(lightingShader);
 		techo.Draw(lightingShader);
 		skybox.Draw(lightingShader);
+		marco.Draw(lightingShader);
 
 		
 
@@ -768,19 +786,51 @@ int main()
 		model = glm::rotate(model, glm::radians(TrotZ), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		teapot.Draw(lightingShader);
+		
+
+		//Puerta cuarto.
+		model = glm::mat4(1);
+
+		model = glm::translate(model, glm::vec3(0.42418f, 1.77616f, -0.382188f));
+		model = glm::rotate(model, glm::radians(ProtY), glm::vec3(0.0f, 1.0f, 0.0f ));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		puerta.Draw(lightingShader);
+
 
 		//Reseteamos transformaciones.
 		model = glm::mat4(1);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-
-
-		
-
-
 		glUniform4f(glGetUniformLocation(lightingShader.Program, "colorAlpha"), 1.0, 1.0, 1.0, 1.0);
 		//Desactiva el canal alfa 
 		glBindVertexArray(0);
+
+		//Dibujamos el lago animado, con otro shader.
+		Anim2.Use();
+		viewPosLoc = glGetUniformLocation(Anim2.Program, "viewPos");
+		glUniform3f(viewPosLoc, camera.GetPosition().x, camera.GetPosition().y, camera.GetPosition().z);
+
+		// Directional light
+		glUniform3f(glGetUniformLocation(Anim2.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
+		glUniform3f(glGetUniformLocation(Anim2.Program, "dirLight.ambient"), 0.5f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(Anim2.Program, "dirLight.diffuse"), 0.1f, 0.1f, 0.1f);
+		glUniform3f(glGetUniformLocation(Anim2.Program, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
+
+		//Informacion de tiempo.
+		glUniform1f(glGetUniformLocation(Anim2.Program, "time"), glfwGetTime());
+
+		//Set matrices
+		modelLoc = glGetUniformLocation(Anim2.Program, "model");
+		viewLoc = glGetUniformLocation(Anim2.Program, "view");
+		projLoc = glGetUniformLocation(Anim2.Program, "projection");
+
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		model = glm::mat4(1);
+
+		model = glm::translate(model, glm::vec3(38.6951f, -0.70f, 19.1455f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		lago.Draw(Anim2);
 
 
 
@@ -894,6 +944,68 @@ void Animacion() {
 		}
 
 	}
+
+	if ( playpuerta )
+	{
+		if (i_curr_steps >= i_max_steps) //end of animation between frames?
+		{
+			puertaPlayIndex++;
+			if (puertaPlayIndex > PuertaFrameIndex - 2)	//end of total animation?
+			{
+				printf("termina anim\n");
+				puertaPlayIndex = 0;
+				playpuerta = false;
+				pabierta = true;
+			}
+			else //Next frame interpolations
+			{
+				i_curr_steps = 0; //Reset counter
+								  //Interpolation
+				interpolation(PuertaKF, puertaPlayIndex);
+			}
+		}
+		else
+		{
+			//Draw animation
+
+
+			ProtY += PuertaKF[puertaPlayIndex].rotIncY;
+
+			i_curr_steps++;
+		}
+
+	}
+
+	if (playpuerta2)
+	{
+		if (i_curr_steps >= i_max_steps) //end of animation between frames?
+		{
+			puertaPlayIndex++;
+			if (puertaPlayIndex > PuertaFrameIndex - 2)	//end of total animation?
+			{
+				printf("termina anim\n");
+				puertaPlayIndex = 0;
+				playpuerta2 = false;
+				pcerrada = true;
+			}
+			else //Next frame interpolations
+			{
+				i_curr_steps = 0; //Reset counter
+								  //Interpolation
+				interpolation(PuertaKF2, puertaPlayIndex);
+			}
+		}
+		else
+		{
+			//Draw animation
+
+
+			ProtY += PuertaKF2[puertaPlayIndex].rotIncY;
+
+			i_curr_steps++;
+		}
+
+	}
 	
 
 }
@@ -939,32 +1051,24 @@ void DoMovement()
 
 	if (keys[GLFW_KEY_T])
 	{
-		//pointLightPositions[0].x += 0.01f;
-		SpotlightPos.x += 0.01;
+		
 	}
 	
 
 	if (keys[GLFW_KEY_Y])
 	{
-		//pointLightPositions[0].y += 0.01f;
-		SpotlightPos.y += 0.01;
+		
 	}
 
 	if (keys[GLFW_KEY_H])
 	{
-		//pointLightPositions[0].y -= 0.01f;
-		SpotlightPos.y -= 0.01;
+		
 	}
 	if (keys[GLFW_KEY_U])
 	{
-		//pointLightPositions[0].z -= 0.01f;
-		SpotlightPos.z += 0.01;
+		
 	}
-	if (keys[GLFW_KEY_J])
-	{
-		//pointLightPositions[0].z += 0.01f;
-		SpotlightPos.z -= 0.01;
-	}
+
 
 	if (keys[GLFW_KEY_1]) {
 		posX += 0.001;
@@ -999,11 +1103,11 @@ void DoMovement()
 	}
 
 	if (keys[GLFW_KEY_N]) {
-		rotY -= 0.05;
+		ProtY -= 0.05;
 	}
 
 	if (keys[GLFW_KEY_M]) {
-		rotY += 0.05;
+		ProtY += 0.05;
 	}
 
 	if (keys[GLFW_KEY_COMMA]) {
@@ -1108,6 +1212,49 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		else
 		{
 			play = false;
+		}
+
+	}
+
+	//Animacion Puerta
+	if (keys[GLFW_KEY_J])
+	{
+		if (playpuerta == false && (PuertaFrameIndex > 1) && pcerrada)
+		{
+
+			resetElements();
+			//First Interpolation				
+			interpolation(PuertaKF, puertaPlayIndex);
+
+			playpuerta = true;
+			puertaPlayIndex = 0;
+			i_curr_steps = 0;
+			pcerrada = false;
+		}
+		else
+		{
+			playpuerta = false;
+		}
+
+	}
+
+	if (keys[GLFW_KEY_U])
+	{
+		if (playpuerta2 == false && (PuertaFrameIndex > 1) && pabierta)
+		{
+
+			resetElements();
+			//First Interpolation				
+			interpolation(PuertaKF2, puertaPlayIndex);
+
+			playpuerta2 = true;
+			puertaPlayIndex = 0;
+			i_curr_steps = 0;
+			pabierta = false;
+		}
+		else
+		{
+			playpuerta2 = false;
 		}
 
 	}
