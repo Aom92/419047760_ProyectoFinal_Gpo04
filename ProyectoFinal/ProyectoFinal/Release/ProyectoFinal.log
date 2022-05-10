@@ -1,72 +1,56 @@
 ﻿  MainProyecto.cpp
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(240,24): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(520,25): warning C4305: '+=': truncation from 'double' to 'T'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(99,26): warning C4244: 'initializing': conversion from 'std::streamoff' to 'unsigned int', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(410,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(468,24): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(848,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(854,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(856,20): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(939,25): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(525,25): warning C4305: '-=': truncation from 'double' to 'T'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(946,25): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(531,25): warning C4305: '+=': truncation from 'double' to 'T'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(952,25): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(537,25): warning C4305: '-=': truncation from 'double' to 'T'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(957,25): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(542,25): warning C4305: '+=': truncation from 'double' to 'T'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(962,25): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(547,25): warning C4305: '-=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(551,26): warning C4305: '+=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(555,26): warning C4305: '-=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(559,26): warning C4305: '+=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(563,26): warning C4305: '-=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(567,26): warning C4305: '+=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(618,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(619,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(623,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(624,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(626,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(627,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(966,16): warning C4305: '+=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(970,16): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(974,16): warning C4305: '+=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(978,16): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(982,16): warning C4305: '+=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(986,16): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(990,15): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(994,15): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(998,15): warning C4305: '-=': truncation from 'double' to 'float'
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(1109,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(1110,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(1114,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(1115,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(1117,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\ProyectoFinal\MainProyecto.cpp(1118,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 628 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  78 of 667 functions (11.7%) were compiled, the rest were copied from previous compilation.
+    38 functions were new in current compilation
+    59 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 soil2-debug.lib(etc1_utils.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(etc1_utils.obj)' or at 'D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
 soil2-debug.lib(image_DXT.obj) : warning LNK4099: PDB 'soil2-debug.pdb' was not found with 'soil2-debug.lib(image_DXT.obj)' or at 'D:\UNAM\8tavo Semestre\Computacion Grafica\Proyecto\repositorio\419047760_ProyectoFinal_Gpo04\ProyectoFinal\Release\soil2-debug.pdb'; linking object as if no debug info
