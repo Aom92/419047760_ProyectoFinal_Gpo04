@@ -1,5 +1,7 @@
+// STD C++ Libs.
 #include <iostream>
 #include <cmath>
+#include <fstream>
 
 // GLEW
 #include <GL/glew.h>
@@ -24,11 +26,7 @@
 #include "Camera.h"
 #include "Model.h"
 
-// Function prototypes
-void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
-void MouseCallback(GLFWwindow* window, double xPos, double yPos);
-void DoMovement();
-void Animacion();
+
 
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
@@ -60,7 +58,58 @@ bool Tetera = false;
 
 bool Pendulo = false;
 
+//KEYFRAMES:
+glm::vec3 PosIni(0.0f, 1.0f, 0.0f);
+float posX = PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotX = 0, rotY = 0, rotZ = 0;
 
+
+#define MAX_FRAMES 9
+int i_max_steps = 190;
+int i_curr_steps = 0;
+typedef struct _frame
+{
+	
+	float posX;		//Variable para PosicionX
+	float posY;		//Variable para PosicionY
+	float posZ;		//Variable para PosicionZ
+	float incX;		//Variable para IncrementoX
+	float incY;		//Variable para IncrementoY
+	float incZ;		//Variable para IncrementoZ
+	float rotX;
+	float rotY;
+	float rotZ;
+	float rotIncX;
+	float rotIncY;
+	float rotIncZ;
+	
+	//Variables para GUARDAR Key Frames
+	_frame() {
+		
+	}
+
+	void exportar(std::string filename) {
+		ofstream archivo;
+		archivo.open(filename, ios::out | ios::app );
+		archivo << this->posX << " " << this->posY << " " << this->posZ << std::endl;
+		archivo.close();
+	}
+
+	void print() {
+		std::cout << this << endl;
+
+	}
+	
+	
+}FRAME;
+
+
+FRAME KeyFrame[MAX_FRAMES];
+
+
+
+int FrameIndex = 0;			//introducir datos
+bool play = false;
+int playIndex = 0;
 
 
 // Positions of the point lights
@@ -91,6 +140,106 @@ glm::vec3 pointLightPositions[] = {
 	*/
 
 };
+
+
+//Funciones para los keyframes:
+void importar_KeyFrames(std::string filename, int& Index, FRAME* KeyFrameArray) {
+
+	FRAME tempframe;
+	std::string linea;
+	//int num_lin = 0;
+	ifstream archivo(filename);
+
+	while (getline(archivo, linea))
+	{
+		istringstream linestream(linea);
+		string valor;
+
+		//Leemos hasta la primera coma
+		getline(linestream, valor, ' ');
+		tempframe.posX = atof(valor.c_str());
+
+		getline(linestream, valor, ' ');
+		tempframe.posY = atof(valor.c_str());
+
+		getline(linestream, valor, ' ');
+		tempframe.posZ = atof(valor.c_str());
+
+		KeyFrameArray[Index] = tempframe;
+
+		Index++;
+
+	}
+
+}
+
+
+void saveFrame(void)
+{
+
+	printf("frameindex %d\n", FrameIndex);
+
+	KeyFrame[FrameIndex].posX = posX;
+	KeyFrame[FrameIndex].posY = posY;
+	KeyFrame[FrameIndex].posZ = posZ;
+
+	KeyFrame[FrameIndex].rotX = rotX;
+	KeyFrame[FrameIndex].rotY = rotY;
+	KeyFrame[FrameIndex].rotZ = rotZ;
+
+	KeyFrame[FrameIndex].exportar("test.keyframe");
+	std::cout << KeyFrame[FrameIndex].posX << endl;
+
+
+	FrameIndex++;
+}
+
+void resetElements(void)
+{
+	posX = KeyFrame[0].posX;
+	posY = KeyFrame[0].posY;
+	posZ = KeyFrame[0].posZ;
+
+	rotX = KeyFrame[0].rotX;
+	rotY = KeyFrame[0].rotY;
+	rotZ = KeyFrame[0].rotZ;
+
+}
+
+void clearKeyFrames(void) {
+
+	FRAME empty;
+
+	for (size_t i = 0; i < MAX_FRAMES; i++)
+	{
+		KeyFrame[i] = empty;
+	}
+
+	
+
+		
+
+}
+
+void interpolation(void)
+{
+
+	KeyFrame[playIndex].incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
+	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
+	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
+	KeyFrame[playIndex].rotIncX = (KeyFrame[playIndex + 1].rotX - KeyFrame[playIndex].rotX) / i_max_steps;
+	KeyFrame[playIndex].rotIncY = (KeyFrame[playIndex + 1].rotY - KeyFrame[playIndex].rotY) / i_max_steps;
+	KeyFrame[playIndex].rotIncZ = (KeyFrame[playIndex + 1].rotZ - KeyFrame[playIndex].rotZ) / i_max_steps;
+	
+}
+
+
+// Function prototypes
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
+void MouseCallback(GLFWwindow* window, double xPos, double yPos);
+void DoMovement();
+void Animacion();
+
 
 float vertices[] = {
 	 -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -145,6 +294,8 @@ glm::vec3 Light1 = glm::vec3(0);
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
+
+
 int main()
 {
 	// Init GLFW
@@ -193,13 +344,14 @@ int main()
 
 
 	
+
+	
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 
 	//Carga de Modelos 3D. 
 	Model Piso((char*)"Models/Pisos/Piso.obj");
-	Model Esfera((char*)"Models/Esfera/Esfera.obj");
-	Model Box((char*)"Models/Box/Box.obj");
+	
 	//Modelos Adicionales.
 	Model pasillo((char*)"Models/Extras/Pasillo.obj");
 	Model skybox((char*)"Models/Extras/SkyBox.obj");
@@ -237,8 +389,30 @@ int main()
 
 
 	
+	//Inicialización de KeyFrames
+
+	importar_KeyFrames("test.keyframe", FrameIndex, KeyFrame);
 
 
+	for (size_t i = 0; i < FrameIndex; i++)
+	{
+		std::cout << KeyFrame[i].posX << " " << KeyFrame[i].posY << " " << KeyFrame[i].posZ << " " << endl;
+	}
+
+	/*for (int i = 0; i < MAX_FRAMES; i++)
+	{
+		KeyFrame[i].posX = 0;
+		KeyFrame[i].incX = 0;
+		KeyFrame[i].incY = 0;
+		KeyFrame[i].incZ = 0;
+		KeyFrame[i].rotX = 0;
+		KeyFrame[i].rotY = 0;
+		KeyFrame[i].rotZ = 0;
+		KeyFrame[i].rotIncX = 0;
+		KeyFrame[i].rotIncY = 0;
+		KeyFrame[i].rotIncZ = 0;
+
+	}*/
 
 
 
@@ -558,8 +732,9 @@ int main()
 
 		//Tetera
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, TeteraZ));
-		
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, TeteraZ));
+		model = glm::rotate(model, glm::radians(rotX), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		teapot.Draw(lightingShader);
 
@@ -658,6 +833,40 @@ void Animacion() {
 		TeteraX -= 0.0001;
 
 	}
+
+	if (play)
+	{
+		if (i_curr_steps >= i_max_steps) //end of animation between frames?
+		{
+			playIndex++;
+			if (playIndex > FrameIndex - 2)	//end of total animation?
+			{
+				printf("termina anim\n");
+				playIndex = 0;
+				play = false;
+			}
+			else //Next frame interpolations
+			{
+				i_curr_steps = 0; //Reset counter
+								  //Interpolation
+				interpolation();
+			}
+		}
+		else
+		{
+			//Draw animation
+			posX += KeyFrame[playIndex].incX;
+			posY += KeyFrame[playIndex].incY;
+			posZ += KeyFrame[playIndex].incZ;
+
+			rotX += KeyFrame[playIndex].rotIncX;
+			rotY += KeyFrame[playIndex].rotIncY;
+			rotZ += KeyFrame[playIndex].rotIncZ;
+
+			i_curr_steps++;
+		}
+
+	}
 	
 
 }
@@ -730,24 +939,40 @@ void DoMovement()
 		SpotlightPos.z -= 0.01;
 	}
 
+	if (keys[GLFW_KEY_1]) {
+		posX += 0.001;
+	}
+
+	if (keys[GLFW_KEY_2]) {
+		posX -= 0.001;
+	}
+
+	if (keys[GLFW_KEY_3]) {
+		posY += 0.001;
+	}
+
+	if (keys[GLFW_KEY_4]) {
+		posY -= 0.001;
+	}
+
+	if (keys[GLFW_KEY_5]) {
+		posZ += 0.001;
+	}
+	
+	if (keys[GLFW_KEY_6]) {
+		posZ -= 0.001;
+	}
+
+	if (keys[GLFW_KEY_7]) {
+		rotX -= 0.05;
+	}
+
 	if (keys[GLFW_KEY_8]) {
-		SpotlightDir.x += 0.001;
+		rotY -= 0.05;
 	}
 
 	if (keys[GLFW_KEY_9]) {
-		SpotlightDir.x -= 0.005;
-	}
-
-	if (keys[GLFW_KEY_I]) {
-		SpotlightDir.y += 0.005;
-	}
-
-	if (keys[GLFW_KEY_O]) {
-		SpotlightDir.y -= 0.005;
-	}
-
-	if (keys[GLFW_KEY_K]) {
-		SpotlightDir.z += 0.005;
+		rotZ -= 0.05;
 	}
 
 	
@@ -814,6 +1039,44 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 		Tetera = true;
 	}
+
+	//KEYFRAME CONTROLS
+	if (keys[GLFW_KEY_K])
+	{
+		if (FrameIndex < MAX_FRAMES)
+		{
+			saveFrame();
+			
+		}
+
+	}
+
+	if (keys[GLFW_KEY_L])
+	{
+		if (play == false && (FrameIndex > 1))
+		{
+
+			resetElements();
+
+			//First Interpolation				
+			interpolation();
+
+			play = true;
+			playIndex = 0;
+			i_curr_steps = 0;
+		}
+		else
+		{
+			play = false;
+		}
+
+	}
+
+	if (keys[GLFW_KEY_R])
+	{
+		clearKeyFrames();
+	}
+
 }
 
 void MouseCallback(GLFWwindow* window, double xPos, double yPos)
