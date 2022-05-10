@@ -87,17 +87,18 @@ typedef struct _frame
 		
 	}
 
+	/*
+		Tomamos los elementos relevantes de cada frame: (posición y rotación). 
+		Los guardaremos en un archivo de texto con el nombre del parametro filename.
+	*/
 	void exportar(std::string filename) {
 		ofstream archivo;
 		archivo.open(filename, ios::out | ios::app );
-		archivo << this->posX << " " << this->posY << " " << this->posZ << std::endl;
+		archivo << this->posX << " " << this->posY << " " << this->posZ << " "
+				<< this->rotX << " " << this->rotY << " " << this->rotZ << std::endl;
 		archivo.close();
 	}
 
-	void print() {
-		std::cout << this << endl;
-
-	}
 	
 	
 }FRAME;
