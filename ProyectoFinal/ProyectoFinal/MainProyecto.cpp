@@ -49,10 +49,13 @@ GLfloat PointLinear, PointQuad;
 bool active;
 
 //Variables para Animacion
-float rotPuertaD, rotPuertaI, PeriodoPendulo, TeteraX, TeteraZ;
+float rotPuertaD, rotPuertaI, PeriodoPendulo;
 bool PuertaA = false;
 bool PuertaC = false;
 bool Tetera = false;
+
+float TeteraX, TeteraZ, TrotX, TrotY, TrotZ = 0.0;	//Variables para la tetera.
+float  TeteraY = 1.0f;
 
 
 
@@ -61,6 +64,8 @@ bool Pendulo = false;
 //KEYFRAMES:
 glm::vec3 PosIni(0.0f, 1.0f, 0.0f);
 float posX = PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotX = 0, rotY = 0, rotZ = 0;
+
+
 
 
 #define MAX_FRAMES 16
@@ -197,7 +202,7 @@ void saveFrame(void)
 	KeyFrame[FrameIndex].rotY = rotY;
 	KeyFrame[FrameIndex].rotZ = rotZ;
 
-	KeyFrame[FrameIndex].exportar("Anims/tetera.keyframe");
+	KeyFrame[FrameIndex].exportar("Anims/temp.keyframe");
 	std::cout << KeyFrame[FrameIndex].posX << endl;
 
 
@@ -206,13 +211,21 @@ void saveFrame(void)
 
 void resetElements(void)
 {
-	posX = KeyFrame[0].posX;
-	posY = KeyFrame[0].posY;
-	posZ = KeyFrame[0].posZ;
+	TeteraX = KeyFrame[0].posX;
+	TeteraY = KeyFrame[0].posY;
+	TeteraZ = KeyFrame[0].posZ;
 
-	rotX = KeyFrame[0].rotX;
-	rotY = KeyFrame[0].rotY;
-	rotZ = KeyFrame[0].rotZ;
+	TrotX = KeyFrame[0].rotX;
+	TrotY = KeyFrame[0].rotY;
+	TrotZ = KeyFrame[0].rotZ;
+	
+	//posX = KeyFrame[0].posX;
+	//posY = KeyFrame[0].posY;
+	//posZ = KeyFrame[0].posZ;
+
+	//rotX = KeyFrame[0].rotX;
+	//rotY = KeyFrame[0].rotY;
+	//rotZ = KeyFrame[0].rotZ;
 
 }
 
@@ -748,11 +761,11 @@ int main()
 
 		//Tetera
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(-3.94867f, 1.77696f , -3.71513f ));
-		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, TeteraZ));
-		model = glm::rotate(model, glm::radians(rotX), glm::vec3(1.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(rotZ), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(-3.94867f + TeteraX, 1.77696f + TeteraY, -3.71513f + TeteraZ ));
+		
+		model = glm::rotate(model, glm::radians(TrotX), glm::vec3(1.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(TrotY), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(TrotZ), glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		teapot.Draw(lightingShader);
 
@@ -841,6 +854,7 @@ void Animacion() {
 	if (Pendulo)
 	{
 		//Basandonos en la ecuación del periodo del pendulo.
+					// 2 * PI * sqrt(Longitud * gravedad)
 		PeriodoPendulo = 2 * 3.1415 * sqrt(15.0 / 9.81);
 
 	}
@@ -868,13 +882,13 @@ void Animacion() {
 		else
 		{
 			//Draw animation
-			posX += KeyFrame[playIndex].incX;
-			posY += KeyFrame[playIndex].incY;
-			posZ += KeyFrame[playIndex].incZ;
+			TeteraX += KeyFrame[playIndex].incX;
+			TeteraY += KeyFrame[playIndex].incY;
+			TeteraZ += KeyFrame[playIndex].incZ;
 
-			rotX += KeyFrame[playIndex].rotIncX;
-			rotY += KeyFrame[playIndex].rotIncY;
-			rotZ += KeyFrame[playIndex].rotIncZ;
+			TrotX += KeyFrame[playIndex].rotIncX;
+			TrotY += KeyFrame[playIndex].rotIncY;
+			TrotZ += KeyFrame[playIndex].rotIncZ;
 
 			i_curr_steps++;
 		}
