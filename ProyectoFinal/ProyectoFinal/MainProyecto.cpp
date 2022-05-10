@@ -63,7 +63,7 @@ glm::vec3 PosIni(0.0f, 1.0f, 0.0f);
 float posX = PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotX = 0, rotY = 0, rotZ = 0;
 
 
-#define MAX_FRAMES 9
+#define MAX_FRAMES 16
 int i_max_steps = 190;
 int i_curr_steps = 0;
 typedef struct _frame
@@ -166,6 +166,15 @@ void importar_KeyFrames(std::string filename, int& Index, FRAME* KeyFrameArray) 
 		getline(linestream, valor, ' ');
 		tempframe.posZ = atof(valor.c_str());
 
+		getline(linestream, valor, ' ');
+		tempframe.rotX = atof(valor.c_str());
+
+		getline(linestream, valor, ' ');
+		tempframe.rotY = atof(valor.c_str());
+
+		getline(linestream, valor, ' ');
+		tempframe.rotZ = atof(valor.c_str());
+
 		KeyFrameArray[Index] = tempframe;
 
 		Index++;
@@ -188,7 +197,7 @@ void saveFrame(void)
 	KeyFrame[FrameIndex].rotY = rotY;
 	KeyFrame[FrameIndex].rotZ = rotZ;
 
-	KeyFrame[FrameIndex].exportar("test.keyframe");
+	KeyFrame[FrameIndex].exportar("Anims/tetera.keyframe");
 	std::cout << KeyFrame[FrameIndex].posX << endl;
 
 
@@ -222,7 +231,7 @@ void clearKeyFrames(void) {
 
 }
 
-void interpolation(void)
+void interpolation(FRAME* KeyFrame, int& Index)
 {
 
 	KeyFrame[playIndex].incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
@@ -393,7 +402,7 @@ int main()
 	
 	//Inicialización de KeyFrames
 
-	importar_KeyFrames("test.keyframe", FrameIndex, KeyFrame);
+	importar_KeyFrames("Anims/tetera.keyframe", FrameIndex, KeyFrame);
 
 
 	for (size_t i = 0; i < FrameIndex; i++)
@@ -739,7 +748,7 @@ int main()
 
 		//Tetera
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(-3.94867f + posX, 2.87696f + posY , -3.51513f + posZ));
+		model = glm::translate(model, glm::vec3(-3.94867f, 1.77696f , -3.71513f ));
 		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, TeteraZ));
 		model = glm::rotate(model, glm::radians(rotX), glm::vec3(1.0f, 0.0f, 1.0f));
 		model = glm::rotate(model, glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -836,15 +845,8 @@ void Animacion() {
 
 	}
 
-	if (Tetera) {
-		//TeteraZ = 0.36 * TeteraX + 0.36;
-		TeteraZ = -0.0631 - 0.0105 * sqrt(-855 * powf(TeteraX, 2) - 1425 * TeteraX + 36);
 
-		TeteraX -= 0.0001;
-
-	}
-
-	//iniciar animaciones por interpolaciones.
+	//iniciar animaciones por interpolaciones de la Tetera
 	if (play)
 	{
 		if (i_curr_steps >= i_max_steps) //end of animation between frames?
@@ -860,7 +862,7 @@ void Animacion() {
 			{
 				i_curr_steps = 0; //Reset counter
 								  //Interpolation
-				interpolation();
+				interpolation(KeyFrame, playIndex);
 			}
 		}
 		else
@@ -974,16 +976,28 @@ void DoMovement()
 		posZ -= 0.001;
 	}
 
-	if (keys[GLFW_KEY_UP]) {
+	if (keys[GLFW_KEY_V]) {
 		rotX -= 0.05;
 	}
 
-	if (keys[GLFW_KEY_LEFT]) {
+	if (keys[GLFW_KEY_B]) {
+		rotX += 0.05;
+	}
+
+	if (keys[GLFW_KEY_N]) {
 		rotY -= 0.05;
 	}
 
-	if (keys[GLFW_KEY_9]) {
+	if (keys[GLFW_KEY_M]) {
+		rotY += 0.05;
+	}
+
+	if (keys[GLFW_KEY_COMMA]) {
 		rotZ -= 0.05;
+	}
+
+	if (keys[GLFW_KEY_PERIOD]) {
+		rotZ += 0.05;
 	}
 
 	
@@ -1062,6 +1076,7 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	}
 
+	//Animacion Tetera
 	if (keys[GLFW_KEY_L])
 	{
 		if (play == false && (FrameIndex > 1))
@@ -1070,7 +1085,7 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 			resetElements();
 
 			//First Interpolation				
-			interpolation();
+			interpolation(KeyFrame, playIndex);
 
 			play = true;
 			playIndex = 0;
@@ -1083,10 +1098,12 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 
 	}
 
-	if (keys[GLFW_KEY_R])
+
+
+	/*if (keys[GLFW_KEY_R])
 	{
 		clearKeyFrames();
-	}
+	}*/
 
 }
 
