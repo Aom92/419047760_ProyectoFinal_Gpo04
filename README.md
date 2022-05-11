@@ -6,3 +6,9 @@ Juárez Pérez Hugo.
 un espacio tridimencional con temática libre.
 
 En este Caso se escogió una ubicación dentro del videojuego Genshin Impact. 
+
+*Recursos externos:
+  Textura de agua de Susana Peake: https://www.artstation.com/artwork/GXGPDN
+  Modelo de Espada de
+  Modelos 3D y texturas utilizando: https://github.com/Perfare/AssetStudio
+  
