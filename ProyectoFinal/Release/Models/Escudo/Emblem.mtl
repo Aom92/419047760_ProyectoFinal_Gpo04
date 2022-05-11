@@ -1,18 +1,11 @@
-newmtl Emblem_Emblem_Emblem_lambert4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Escudo.jpg
-Ni 1.00
-newmtl lambert4SG
+newmtl pasted__Emblem_lambert4SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Escudo2.png
 Ni 1.00
-newmtl lambert5SG
+newmtl pasted__Emblem_lambert5SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
