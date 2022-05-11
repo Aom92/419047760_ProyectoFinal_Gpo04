@@ -44,6 +44,7 @@ float turbo = 0.0;
 glm::vec3 lightPos(0.0f, 0.0f, 0.0f);
 glm::vec3 SpotlightPos(2.1f, 5.0f, 4.0f);
 glm::vec3 SpotlightDir(0.0f, -1.0f, 0.0f);
+float ilumVal = 0.5f;
 
 GLfloat PointLinear, PointQuad;
 bool active;
@@ -393,6 +394,8 @@ int main()
 	Model tapete((char*)"Models/Tapete/Tapete.obj");
 	Model marco((char*)"Models/Extras/MarcoPuerta.obj");
 	Model puerta((char*)"Models/Extras/Puerta.obj");
+	Model ventanas((char*)"Models/Extras/VentanasFalsas.obj");
+	Model libros((char*)"Models/Extras/Libros.obj");
 
 	//Modelos para el cuarto.
 	Model reloj((char*)"Models/Reloj/Reloj1.obj");
@@ -514,7 +517,7 @@ int main()
 
 		// Directional light
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), 0.5f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"), ilumVal, ilumVal, ilumVal);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.1f, 0.1f, 0.1f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
 
@@ -716,6 +719,8 @@ int main()
 		techo.Draw(lightingShader);
 		skybox.Draw(lightingShader);
 		marco.Draw(lightingShader);
+		ventanas.Draw(lightingShader);
+		libros.Draw(lightingShader);
 
 		
 
@@ -828,7 +833,7 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		model = glm::mat4(1);
 
-		model = glm::translate(model, glm::vec3(38.6951f, -0.70f, 19.1455f));
+		model = glm::translate(model, glm::vec3(25.6951f, -0.70f, 19.1455f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		lago.Draw(Anim2);
 
@@ -1049,33 +1054,19 @@ void DoMovement()
 
 	}
 
-	if (keys[GLFW_KEY_T])
-	{
-		
-	}
-	
 
-	if (keys[GLFW_KEY_Y])
-	{
-		
-	}
 
-	if (keys[GLFW_KEY_H])
-	{
-		
-	}
-	if (keys[GLFW_KEY_U])
-	{
-		
-	}
+
 
 
 	if (keys[GLFW_KEY_1]) {
 		posX += 0.001;
+		ilumVal += 0.001;
 	}
 
 	if (keys[GLFW_KEY_2]) {
 		posX -= 0.001;
+		ilumVal -= 0.001;
 	}
 
 	if (keys[GLFW_KEY_3]) {
