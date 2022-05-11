@@ -1,199 +1,35 @@
-newmtl FavHQ1_lambert2SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_MdBuild_KnightHQ02_Assembly01_Diffuse.png
-Ni 1.00
-newmtl FavHQ1_lambert3SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_Mdbuild_Stage01_Diffuse.png
-Ni 1.00
-newmtl FavHQ1_lambert4SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_Mdbuild_Edge01_Diffuse.png
-Ni 1.00
-newmtl FavHQ1_lambert5SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_MdBuild_Wall09_Diffuse.png
-Ni 1.00
-newmtl FavHQ1_lambert6SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_MdBuild_Wall08_Diffuse.png
-Ni 1.00
-newmtl FavHQ1_lambert7SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_MdBuild_Window_A_Diffuse.png
-Ni 1.00
-newmtl FavHQ1_lambert8SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Area_MdBuild_House_Roof05_Diffuse.png
-Ni 1.00
-newmtl Librero1_lambert2SG
+newmtl pasted__pasted__lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
 Ni 1.00
-newmtl initialShadingGroup
-illum 4
-Kd 0.50 0.50 0.50
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-newmtl lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl lambert4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd desk.png
-Ni 1.00
-newmtl lambert5SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Tapete.png
-Ni 1.00
-newmtl lambert9SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdBuild_Knight_Wall02_Diffuse.png
-Ni 1.00
-newmtl lambert10SG
+newmtl pasted__pasted__lambert3SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Indoor_MdBuild_Knight_Wall01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert2SG1
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert3SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdBuild_Knight_Wall01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert4SG
+newmtl pasted__pasted__lambert4SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Stages_Wood_Plane_01_T4_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert5SG
+newmtl pasted__pasted__lambert5SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Stages_Wood_Pillar_01_T2_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert6SG
+newmtl pasted__pasted__lambert6SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Indoor_MdBuild_Knight_Edge01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert7SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert7SG1
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
-Ni 1.00
-newmtl phong1SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Stages_Wood_Pillar_01_T2_Diffuse.png
-Ni 1.00
-Ks 0.00 0.00 0.00
-map_Ks Wood_Specular.png
-Ns 18.00
-newmtl phong2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd TeteraUV.png
-Ni 1.00
-Ks 0.00 0.00 0.00
-map_Ks TeteraUVS.png
-Ns 19.87
-newmtl phong3SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdBuild_Knight_Ground01_Diffuse.png
-Ni 1.00
-Ks 0.50 0.50 0.50
-Ns 18.00
-newmtl phong4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-Ks 0.50 0.50 0.50
-Ns 18.00
-newmtl phong5SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-Ks 0.50 0.50 0.50
-Ns 18.00

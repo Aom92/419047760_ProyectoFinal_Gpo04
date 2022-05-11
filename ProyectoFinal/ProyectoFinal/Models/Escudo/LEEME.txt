@@ -1,1 +1,0 @@
-El comprimido debe ir en una carpeta llamada Escudo, dentro del directorio Models, para la práctica 6
