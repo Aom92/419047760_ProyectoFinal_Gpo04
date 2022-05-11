@@ -149,6 +149,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="modelAnim.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
@@ -169,6 +170,12 @@
     <None Include="Shaders\modelLoading.vs" />
     <None Include="Shaders\SkyBox.frag" />
     <None Include="Shaders\SkyBox.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ProyectoFinal.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Release\paimon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

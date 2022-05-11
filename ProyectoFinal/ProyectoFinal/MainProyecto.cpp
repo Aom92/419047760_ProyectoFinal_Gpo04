@@ -359,13 +359,21 @@ int main()
 
 
 	
-
+	std::cout << "Compilando Shaders :)" << std::endl;
 	
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
 	Shader Anim2("Shaders/anim2.vs", "Shaders/anim2.frag");
 
+	//Inicialización de KeyFrames
 
+	std::cout << "Cargando Animaciones :o " << std::endl;
+	importar_KeyFrames("Anims/tetera.keyframe", FrameIndex, KeyFrame);
+	importar_KeyFrames("Anims/puerta.keyframe", PuertaFrameIndex, PuertaKF);
+	importar_KeyFrames("Anims/puerta2.keyframe", PuertaFrameIndex2, PuertaKF2);
+
+
+	std::cout << "Cargando Modelos... Espere un momento :)" << std::endl;
 	//Carga de Modelos 3D. 
 	Model Piso((char*)"Models/Pisos/Piso.obj");
 	
@@ -380,6 +388,9 @@ int main()
 	Model ventanas((char*)"Models/Extras/VentanasFalsas.obj");
 	Model libros((char*)"Models/Extras/Libros.obj");
 
+	std::cout << "Cargando... 38%" << std::endl;
+
+
 	//Modelos para el cuarto.
 	Model reloj((char*)"Models/Reloj/Reloj1.obj");
 	Model mantelTetera((char*)"Models/Teaset/Mantel.obj");
@@ -390,12 +401,14 @@ int main()
 	Model escudo((char*)"Models/Escudo/Emblem.obj");
 	Model teapot((char*)"Models/Teaset/Tetera.obj");
 
-
+	std::cout << "Cargando... 38%" << std::endl;
 
 	//Librero y sus variantes.
 	Model librero((char*)"Models/Libreros/Librero.obj");
 	Model libreroAncho((char*)"Models/Libreros/LibreroAncho.obj");
 	Model librerosVar((char*)"Models/Libreros/LibrerosAnchoVar.obj");
+
+	std::cout << "Cargando... 80%" << std::endl;
 
 	//Modelos animados.
 	Model puertader((char*)"Models/Fachada/PuertaDer.obj");
@@ -412,13 +425,9 @@ int main()
 	//Model cuarto1((char*)"Models/Ambientes/Cuarto1.obj");
 	Model cuarto2((char*)"Models/Ambientes/Cuarto2.obj");
 
-
+	std::cout << "Cargando... 100% LISTO! :D" << std::endl;
 	
-	//Inicialización de KeyFrames
 
-	importar_KeyFrames("Anims/tetera.keyframe", FrameIndex, KeyFrame);
-	importar_KeyFrames("Anims/puerta.keyframe", PuertaFrameIndex, PuertaKF);
-	importar_KeyFrames("Anims/puerta2.keyframe", PuertaFrameIndex2, PuertaKF2);
 
 
 	/*for (size_t i = 0; i < PuertaFrameIndex; i++)
@@ -702,14 +711,7 @@ int main()
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[19].linear"), PointLinear);
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[19].quadratic"), PointQuad);
 
-		//Point Light X
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].position"), pointLightPositions[20].x, pointLightPositions[20].y, pointLightPositions[20].z);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].ambient"), lightColor.x, lightColor.y, lightColor.z);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].diffuse"), lightColor.x, lightColor.y, lightColor.z);
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].specular"), 1.0f, 1.0f, 1.0f);
-		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[20].constant"), 1.0f);
-		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[20].linear"), PointLinear);
-		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[20].quadratic"), PointQuad);
+		
 
 
 
@@ -912,7 +914,7 @@ int main()
 		model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		// Draw the light object (using light's vertex attributes)
-		for (GLuint i = 0; i < 21; i++)
+		for (GLuint i = 0; i < 20; i++)
 		{
 			model = glm::mat4(1);
 			model = glm::translate(model, pointLightPositions[i]);
@@ -1110,16 +1112,20 @@ void DoMovement()
 
 
 	}
-	//movimiento generico para algun objeto, des
-	//if (keys[GLFW_KEY_1]) {
-	//	posX += 0.001;
-	//	ilumVal += 0.001;
-	//}
 
-	//if (keys[GLFW_KEY_2]) {
-	//	posX -= 0.001;
-	//	ilumVal -= 0.001;
-	//}
+	//Control de Iluminación.
+	if (keys[GLFW_KEY_1]) {
+		
+		ilumVal += 0.001;
+	}
+
+	if (keys[GLFW_KEY_2]) {
+		
+		ilumVal -= 0.001;
+	}
+
+	//movimiento generico para algun objeto, des
+
 
 	//if (keys[GLFW_KEY_3]) {
 	//	posY += 0.001;
