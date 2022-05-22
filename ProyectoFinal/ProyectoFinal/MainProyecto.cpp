@@ -29,7 +29,7 @@
 
 
 // Window dimensions
-const GLuint WIDTH = 800, HEIGHT = 600;
+const GLuint WIDTH = 1280, HEIGHT = 720;
 int SCREEN_WIDTH, SCREEN_HEIGHT;
 
 // Camera
@@ -147,7 +147,9 @@ glm::vec3 pointLightPositions[] = {
 	glm::vec3(-11.7366f, 36.4252f, -27.1644f),
 	glm::vec3(-14.9185f, 36.7041f, -27.5463f),
 	glm::vec3(-15.1319f, 36.4794f, -24.9730f),
-	glm::vec3(-10.6865f, 30.6277f, -15.5078f)
+	glm::vec3(-10.6865f, 30.6277f, -15.5078f),
+	glm::vec3(-5.68681f, 6.64272f, -13.6336f),
+    glm::vec3(-5.6923f, 6.73042f, -20.6024f)
 	
 };
 
@@ -712,6 +714,24 @@ int main()
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[19].linear"), PointLinear);
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[19].quadratic"), PointQuad);
 
+		//Point Light X
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].position"), pointLightPositions[20].x, pointLightPositions[20].y, pointLightPositions[20].z);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].ambient"), lightColor.x, lightColor.y, lightColor.z);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].diffuse"), lightColor.x, lightColor.y, lightColor.z);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[20].specular"), 1.0f, 1.0f, 1.0f);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[20].constant"), 1.0f);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[20].linear"), PointLinear);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[20].quadratic"), PointQuad);
+
+		//Point Light X
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[21].position"), pointLightPositions[21].x, pointLightPositions[21].y, pointLightPositions[21].z);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[21].ambient"), lightColor.x, lightColor.y, lightColor.z);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[21].diffuse"), lightColor.x, lightColor.y, lightColor.z);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[21].specular"), 1.0f, 1.0f, 1.0f);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[21].constant"), 1.0f);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[21].linear"), PointLinear);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[21].quadratic"), PointQuad);
+
 		
 
 
@@ -1207,11 +1227,11 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 	}
 
 	
-	//if (keys[GLFW_KEY_P]) {
-	//	//Debug functions
-	//	std::cout << "X: " << camera.GetPosition().x << "Y: " << camera.GetPosition().y << "Z: " << camera.GetPosition().z << std::endl;
+	if (keys[GLFW_KEY_P]) {
+		//Debug functions
+		std::cout << "X: " << camera.GetPosition().x << "Y: " << camera.GetPosition().y << "Z: " << camera.GetPosition().z << std::endl;
 
-	//}
+	}
 
 	//Botones de animación
 	if (keys[GLFW_KEY_G]) {
