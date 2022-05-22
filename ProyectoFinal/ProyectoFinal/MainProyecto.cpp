@@ -424,6 +424,7 @@ int main()
 	//Modelos de los ambientes.
 	//Model cuarto1((char*)"Models/Ambientes/Cuarto1.obj");
 	Model cuarto2((char*)"Models/Ambientes/Cuarto2.obj");
+	Model cuarto3((char*)"Models/Ambientes/Cuarto3.obj");
 
 	std::cout << "Cargando... 100% LISTO! :D" << std::endl;
 	
@@ -772,6 +773,7 @@ int main()
 		modelRoom = model;
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelRoom));
 		cuarto2.Draw(lightingShader);
+		cuarto3.Draw(lightingShader);
 
 		//Dibujamos los objetos adicionales
 		pasillo.Draw(lightingShader);
