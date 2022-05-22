@@ -1,7 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
 mtllib VentanasFalsas.mtl
-g default
 v -14.712106 12.203619 -10.950361
 v -14.712106 12.203619 9.046063
 v -14.712106 -2.028506 -10.950361
@@ -15,23 +14,20 @@ vn 1.000000 0.000000 0.000000
 vn 1.000000 0.000000 0.000000
 vn 1.000000 0.000000 0.000000
 s off
-g pasted__pasted__pasted__polySurface2pasted__pCube1group pasted__group7 group1
-usemtl pasted__pasted__pasted__lambert2SG
+usemtl pasted__VentanasFalsas_pasted__pasted__pasted__lambert2SG
 f 1/1/1 2/2/2 4/3/3 3/4/4
-g default
-v 6.052767 11.490041 -10.045953
-v -13.515519 11.490041 -10.045953
-v 6.052767 -2.437364 -10.045953
-v -13.515519 -2.437364 -10.045953
+v 0.714082 8.063004 -7.656103
+v -18.854204 8.063004 -7.656103
+v 0.714082 -5.864401 -7.656103
+v -18.854204 -5.864401 -7.656103
 vt 0.997402 1.001757
 vt 0.000040 1.001911
 vt -0.001530 0.162108
 vt 0.998414 0.159673
-vn -0.000000 0.000000 1.000000
-vn -0.000000 0.000000 1.000000
-vn -0.000000 0.000000 1.000000
-vn -0.000000 0.000000 1.000000
+vn 0.000000 0.000000 1.000000
+vn 0.000000 0.000000 1.000000
+vn 0.000000 0.000000 1.000000
+vn 0.000000 0.000000 1.000000
 s off
-g group1 pasted__pasted__polySurface2pasted__pCube1group
-usemtl pasted__VentanaLat_pasted__lambert2SG
+usemtl pasted__VentanasFalsas_pasted__VentanaLat_pasted__lambert2SG
 f 5/5/5 6/6/6 8/7/7 7/8/8
