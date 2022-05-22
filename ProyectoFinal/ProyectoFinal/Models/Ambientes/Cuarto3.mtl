@@ -1,71 +1,16 @@
-newmtl Pasillo_pasted__lambert10SG
+newmtl pasted__Pasillo_pasted__lambert10SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Indoor_MdBuild_Knight_Wall01_Diffuse.png
-Ni 1.00
-newmtl initialShadingGroup
-illum 4
-Kd 0.50 0.50 0.50
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-Ni 1.00
-newmtl lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdBuild_Knight_Wall01_Diffuse.png
-Ni 1.00
-newmtl lambert3SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl lambert4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
 Ni 1.00
 newmtl pasted__lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert2SG1
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert2SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert2SG3
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert2SG4
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
+map_Kd Indoor_MdBuild_Knight_Wall01_Diffuse.png
 Ni 1.00
 newmtl pasted__lambert3SG
 illum 4
@@ -74,112 +19,35 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert3SG1
+newmtl pasted__lambert4SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert3SG2
+newmtl pasted__pasted__lambert2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert3SG3
+newmtl pasted__pasted__lambert2SG2
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert3SG4
+newmtl pasted__pasted__lambert2SG3
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
 Ni 1.00
-newmtl pasted__lambert3SG5
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert3SG7
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert3SG8
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert3SG9
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert3SG10
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert3SG12
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert4SG2
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert4SG3
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert4SG4
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert4SG5
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
-Ni 1.00
-newmtl pasted__lambert5SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Knight_Door01_Diffuse.png
-Ni 1.00
-newmtl pasted__pasted__Librero1_lambert2SG
+newmtl pasted__pasted__lambert2SG5
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
@@ -191,23 +59,149 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdBuild_Library_Wall01_Diffuse.png
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
 Ni 1.00
 newmtl pasted__pasted__lambert3SG2
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG8
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG9
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG16
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG18
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert3SG20
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Book01_Diffuse.png
 Ni 1.00
 newmtl pasted__pasted__lambert4SG2
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert4SG3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert4SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert4SG5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Knightoffice_Item01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Knight_Door01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__pasted__Librero1_lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__pasted__lambert2SG7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdBuild_Library_Wall01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__pasted__lambert3SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Indoor_MdProps_Library_Shelf01_Diffuse.png
+Ni 1.00
+newmtl pasted__pasted__pasted__lambert4SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
 map_Kd Indoor_MdBuild_Knight_Ground01_Diffuse.png
 Ni 1.00
-newmtl pasted__pasted__lambert5SG2
+newmtl pasted__pasted__pasted__lambert5SG2
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
