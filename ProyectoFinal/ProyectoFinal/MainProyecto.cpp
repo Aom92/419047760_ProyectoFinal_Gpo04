@@ -1227,11 +1227,11 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 	}
 
 	
-	if (keys[GLFW_KEY_P]) {
-		//Debug functions
-		std::cout << "X: " << camera.GetPosition().x << "Y: " << camera.GetPosition().y << "Z: " << camera.GetPosition().z << std::endl;
+	//if (keys[GLFW_KEY_P]) {
+	//	//Debug functions
+	//	std::cout << "X: " << camera.GetPosition().x << "Y: " << camera.GetPosition().y << "Z: " << camera.GetPosition().z << std::endl;
 
-	}
+	//}
 
 	//Botones de animación
 	if (keys[GLFW_KEY_G]) {
