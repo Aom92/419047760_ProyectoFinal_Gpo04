@@ -1,0 +1,49 @@
+newmtl pasted__FavHQ1_lambert2SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_MdBuild_KnightHQ02_Assembly01_Diffuse.png
+Ni 1.00
+newmtl pasted__FavHQ1_lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_Mdbuild_Stage01_Diffuse.png
+Ni 1.00
+newmtl pasted__FavHQ1_lambert4SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_Mdbuild_Edge01_Diffuse.png
+Ni 1.00
+newmtl pasted__FavHQ1_lambert5SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_MdBuild_Wall09_Diffuse.png
+Ni 1.00
+newmtl pasted__FavHQ1_lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_MdBuild_Wall08_Diffuse.png
+Ni 1.00
+newmtl pasted__FavHQ1_lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_MdBuild_Window_A_Diffuse.png
+Ni 1.00
+newmtl pasted__FavHQ1_lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Area_MdBuild_House_Roof05_Diffuse.png
+Ni 1.00
